@@ -1,0 +1,17 @@
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Serializacia.exe
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Serializacia.deps.json
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Serializacia.runtimeconfig.json
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Serializacia.dll
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Serializacia.pdb
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.csproj.AssemblyReference.cache
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.AssemblyInfoInputs.cache
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.AssemblyInfo.cs
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.csproj.CoreCompileInputs.cache
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.csproj.CopyComplete
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.dll
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\refint\Serializacia.dll
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.pdb
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\Serializacia.genruntimeconfig.cache
+C:\Users\КуклевГА\source\repos\Serializacia\Serializacia\obj\Debug\net7.0\ref\Serializacia.dll

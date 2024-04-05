@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "CsvHelper/31.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -14,10 +27,51 @@
             "related": ".xml"
           }
         }
+      },
+      "YamlDotNet/15.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "CsvHelper/31.0.3": {
+      "sha512": "ygck8DR4mG/VDA/LgIVVGpEtXXPDVaaNZNJGrOAJ4pckVw4MbAQ3n/u6YFDv3bwlQhlxTmPhCyk5E4hxe96Crg==",
+      "type": "package",
+      "path": "csvhelper/31.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.31.0.3.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net462/CsvHelper.dll",
+        "lib/net462/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net48/CsvHelper.dll",
+        "lib/net48/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/net7.0/CsvHelper.dll",
+        "lib/net7.0/CsvHelper.xml",
+        "lib/net8.0/CsvHelper.dll",
+        "lib/net8.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -47,11 +101,38 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "YamlDotNet/15.1.2": {
+      "sha512": "qeX0XhzOIcQEvnI5JxnPaIwcINwyY4Qy/LXhSfsdHkFrl9F41AT52UFfy2nIE7kgrhMg+cP7xuS+GtPJhmHmTA==",
+      "type": "package",
+      "path": "yamldotnet/15.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "images/yamldotnet.png",
+        "lib/net47/YamlDotNet.dll",
+        "lib/net47/YamlDotNet.xml",
+        "lib/net6.0/YamlDotNet.dll",
+        "lib/net6.0/YamlDotNet.xml",
+        "lib/net7.0/YamlDotNet.dll",
+        "lib/net7.0/YamlDotNet.xml",
+        "lib/net8.0/YamlDotNet.dll",
+        "lib/net8.0/YamlDotNet.xml",
+        "lib/netstandard2.0/YamlDotNet.dll",
+        "lib/netstandard2.0/YamlDotNet.xml",
+        "lib/netstandard2.1/YamlDotNet.dll",
+        "lib/netstandard2.1/YamlDotNet.xml",
+        "yamldotnet.15.1.2.nupkg.sha512",
+        "yamldotnet.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Newtonsoft.Json >= 13.0.3"
+      "CsvHelper >= 31.0.3",
+      "Newtonsoft.Json >= 13.0.3",
+      "YamlDotNet >= 15.1.2"
     ]
   },
   "packageFolders": {
@@ -60,11 +141,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj",
+      "projectUniqueName": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
       "projectName": "Serializacia",
-      "projectPath": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj",
+      "projectPath": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
       "packagesPath": "C:\\Users\\КуклевГА\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\obj\\",
+      "outputPath": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\КуклевГА\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,9 +174,17 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[31.0.3, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "YamlDotNet": {
+            "target": "Package",
+            "version": "[15.1.2, )"
           }
         },
         "imports": [

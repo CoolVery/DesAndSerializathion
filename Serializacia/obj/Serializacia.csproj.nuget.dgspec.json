@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj": {}
+    "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj": {
+    "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj",
+        "projectUniqueName": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
         "projectName": "Serializacia",
-        "projectPath": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\Serializacia.csproj",
+        "projectPath": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
         "packagesPath": "C:\\Users\\КуклевГА\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\КуклевГА\\source\\repos\\Serializacia\\Serializacia\\obj\\",
+        "outputPath": "C:\\Users\\КуклевГА\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\КуклевГА\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[31.0.3, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "YamlDotNet": {
+              "target": "Package",
+              "version": "[15.1.2, )"
             }
           },
           "imports": [

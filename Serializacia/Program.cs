@@ -43,40 +43,15 @@ namespace Serializacia
                         }
                         Console.WriteLine("Задайте имя файла, в котором будет сохраняться сериализованны данные и откуда они будут считываться (Укажите формат файла, т.е <Имя файла>.<Формат файла>)");
                         string filePath = Console.ReadLine();
-                        Console.WriteLine("Укажите способ Сериализации данных");
-                        string choise = Console.ReadLine();
-                        switch (choise)
-                        {
-                            case "Json":
-                                SerializationData<JsonSerializer> serializationDataJson = new SerializationData<JsonSerializer>();
-                                serializationDataJson.StartSerialization(listPerson, filePath);
-                                break;
-                            case "Xml":
-                                SerializationData<XmlSerializer> serializationDataXml = new SerializationData<XmlSerializer>();
-                                serializationDataXml.StartSerialization(listPerson, filePath);
-                                break;
-                            default:
-                                Console.WriteLine("Введите верны формат");
-                                break;
-                        }
+                        SerializationData<PersonsData> dataPerosonsSerial = new SerializationData<PersonsData>();
+                        dataPerosonsSerial.StartSerialization(listPerson, filePath);
                         Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
                         break;
                     case "3":
                         Console.WriteLine("Задайте имя файла, из которого будут десериализоваться файлы");
                         string filePathDec = Console.ReadLine();
-                        Console.WriteLine("Укажите способ Десериализации данных");
-                        string choiseDec = Console.ReadLine();
-                        switch (choiseDec)
-                        {
-                            case "Json":
-                                SerializationData<JsonSerializer> deserializationDataJson = new SerializationData<JsonSerializer>();
-                                deserializationDataJson.StartDeserialization(filePathDec);
-                                break;
-                            case "Xml":
-                                SerializationData<XmlSerializer> deserializationDataXml = new SerializationData<XmlSerializer>();
-                                deserializationDataXml.StartDeserialization(filePathDec);
-                                break;
-                        }
+                        DeserializathionDate<PersonsData> dataPerosonsDeserial = new DeserializathionDate<PersonsData>();
+                        dataPerosonsDeserial.StartDeserialization(filePathDec);
                         break;
                 }
             }

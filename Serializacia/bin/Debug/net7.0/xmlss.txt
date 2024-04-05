@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPersonsData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PersonsData>
+    <NameP>d</NameP>
+    <SecondNameP>ddd</SecondNameP>
+    <PatronymicP>dd</PatronymicP>
+    <AgeP>2</AgeP>
+  </PersonsData>
+  <PersonsData>
+    <NameP>f</NameP>
+    <SecondNameP>ff</SecondNameP>
+    <PatronymicP>fff</PatronymicP>
+    <AgeP>5</AgeP>
+  </PersonsData>
+</ArrayOfPersonsData>

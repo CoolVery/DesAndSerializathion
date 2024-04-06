@@ -13,7 +13,8 @@ namespace Serializacia
             List<PersonsData> listPerson = new List<PersonsData>();
             while (exit) 
             {
-                Console.WriteLine("Выберите действие, которое хотите выполнить:\n1. Записать людей в базу\n2. Сериализовать данные людей\n3. Десериализовать и получить данные людей");
+                Console.WriteLine("Выберите действие, которое хотите выполнить:\n1. Записать людей в базу\n2. Сериализовать данные людей\n3. Десериализовать и получить данные людей\n" +
+                    "4. Вывести информацию");
                 string choiseAction = Console.ReadLine();
                 switch (choiseAction)
                 {
@@ -50,8 +51,10 @@ namespace Serializacia
                     case "3":
                         Console.WriteLine("Задайте имя файла, из которого будут десериализоваться файлы");
                         string filePathDec = Console.ReadLine();
+                        List<PersonsData> resultList = new List<PersonsData>();
                         DeserializathionDate<PersonsData> dataPerosonsDeserial = new DeserializathionDate<PersonsData>();
-                        dataPerosonsDeserial.StartDeserialization(filePathDec);
+                        resultList = dataPerosonsDeserial.StartDeserialization(filePathDec);
+                        
                         break;
                 }
             }

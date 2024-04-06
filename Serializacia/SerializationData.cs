@@ -82,9 +82,7 @@ namespace serialization
         }
         private bool WriteYamlFile(List<T> listPerson, string filePath)
         {
-            var yamlseril = new SerializerBuilder()
-                  .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                  .Build();
+            var yamlseril = new SerializerBuilder().Build();
             var yaml = yamlseril.Serialize(listPerson);
             File.WriteAllText(filePath, yaml);
             Console.WriteLine(yaml);

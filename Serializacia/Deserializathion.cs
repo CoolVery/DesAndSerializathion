@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
 
 namespace Serializacia
 {
@@ -76,11 +77,10 @@ namespace Serializacia
         }
         private List<T> ReadFileYaml(string filePath)
         {
-            List<T> listDate = new List<T>();
-            using var sr = new StreamReader(filePath);
-
-            var yaml = new YamlStream();
-            yaml.Load(sr);
+            string text = File.ReadAllText(filePath);
+            var deserializer = new DeserializerBuilder().Build();
+            List<T> deserialData = deserializer.Deserialize<List<T>>(text);
+            List<T> listDate = deserialData;   
             return listDate;
         }
     }

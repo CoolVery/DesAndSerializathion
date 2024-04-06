@@ -19,23 +19,23 @@ namespace serialization
     internal class SerializationData<T>
     {
         
-        public bool StartSerialization(List<T> listPerson, string filePath)
+        public bool StartSerialization(List<T> listDate, string filePath)
         {
             Console.WriteLine("Укажите способ Сериализации данных");
             string choise = Console.ReadLine();
             switch (choise)
             {
                 case "Json":
-                    WriteFileJson(listPerson,  filePath);
+                    WriteFileJson(listDate,  filePath);
                     break;
                 case "Xml":
-                    WriteFileXml(listPerson, filePath);
+                    WriteFileXml(listDate, filePath);
                     break;
                 case "Csv":
-                    WriteCsvFile(listPerson, filePath);
+                    WriteCsvFile(listDate, filePath);
                     break;
                 case "Yaml":
-                    WriteYamlFile(listPerson, filePath);
+                    WriteYamlFile(listDate, filePath);
                     break;
                 default:
                     Console.WriteLine("Введите верны формат");

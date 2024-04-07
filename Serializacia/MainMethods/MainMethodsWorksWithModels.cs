@@ -45,6 +45,7 @@ namespace Serializacia.FolderMainMethod
                     string stopSymbol = "\\/:*?\"<>|";
                     if(filePath.Any(stopSymbol.Contains))
                     {
+                        Console.WriteLine("Имя файла не может содержать символы " + stopSymbol);
                         return;
                     }
                     SerializationData<PersonsData> dataPerosonsSerial = new SerializationData<PersonsData>();

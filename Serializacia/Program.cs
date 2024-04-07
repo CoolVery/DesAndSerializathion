@@ -22,7 +22,7 @@ namespace Serializacia
             while (exit)
             {
                 Console.WriteLine("Выберите действие, которое хотите выполнить:\n1. Записать данные в базу\n2. Сериализовать данные людей\n3. Десериализовать и получить данные людей\n" +
-                    "4. Вывести информацию\n(Вводите номер выбора)");
+                    "4. Вывести информацию\n5. Выйти из программы(Вводите номер выбора)");
                 string choiseAction = Console.ReadLine();
                 switch (choiseAction)
                 {
@@ -60,6 +60,10 @@ namespace Serializacia
                                 MainMethodsWorksWithModels.OutputDateFromBaseToConsole(listPersonFromFile, listAnimalFromFile, choise);
                                 break;
                         }
+                        break;
+                    case "5":
+                        exit = false;
+                        Console.WriteLine("Всего хорошего");
                         break;
                     default:
                         Console.WriteLine("Вы ввели неверный номер дейсвия - читайте внимательно список доступных действий");

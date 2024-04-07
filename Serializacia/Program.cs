@@ -5,7 +5,7 @@ using Serializacia.WorkWithData;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Xml.Serialization;
-
+//Welcome
 namespace Serializacia
 {
     internal class Program

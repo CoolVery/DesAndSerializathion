@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zepli\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {}
+    "C:\\Users\\zepli\\source\\repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zepli\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {
+    "C:\\Users\\zepli\\source\\repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zepli\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
+        "projectUniqueName": "C:\\Users\\zepli\\source\\repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
         "projectName": "Serializacia",
-        "projectPath": "C:\\Users\\zepli\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
+        "projectPath": "C:\\Users\\zepli\\source\\repos\\DesAnsSerializathion\\Serializacia\\Serializacia.csproj",
         "packagesPath": "C:\\Users\\zepli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zepli\\Source\\Repos\\DesAnsSerializathion\\Serializacia\\obj\\",
+        "outputPath": "C:\\Users\\zepli\\source\\repos\\DesAnsSerializathion\\Serializacia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\zepli\\AppData\\Roaming\\NuGet\\NuGet.Config",

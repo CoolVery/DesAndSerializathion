@@ -1,41 +1,35 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.IO;
-using System.Threading.Tasks;
-using Serializacia;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using CsvHelper;
 using System.Globalization;
-using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
+using System.Text.Json;
 
-namespace serialization
+namespace Serializacia.WorkWithData
 {
     internal class SerializationData<T>
     {
-        
+
         public bool StartSerialization(List<T> listDate, string filePath)
         {
-            Console.WriteLine("Укажите способ Сериализации данных");
-            string choise = Console.ReadLine();
-            switch (choise)
+            string typeFile = filePath.Substring(filePath.IndexOf('.'));
+
+            switch (typeFile)
             {
-                case "Json":
-                    WriteFileJson(listDate,  filePath);
+                case ".json":
+                    WriteFileJson(listDate, filePath);
+                    Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
                     break;
-                case "Xml":
+                case ".xml":
                     WriteFileXml(listDate, filePath);
+                    Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
                     break;
-                case "Csv":
+                case ".csv":
                     WriteCsvFile(listDate, filePath);
+                    Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
                     break;
-                case "Yaml":
+                case ".yaml":
                     WriteYamlFile(listDate, filePath);
+                    Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
                     break;
                 default:
                     Console.WriteLine("Введите верны формат");
@@ -45,14 +39,10 @@ namespace serialization
         }
         private bool WriteFileJson(List<T> listPerson, string filePath)
         {
-            List<string> dataJson = new List<string>();
-            string result = "";
-            foreach (var person in listPerson)
+            using (FileStream file = new FileStream(filePath, FileMode.Create))
             {
-                result = JsonConvert.SerializeObject(person);
-                dataJson.Add(result);
+                JsonSerializer.Serialize(file, listPerson);
             }
-            File.WriteAllLines(filePath, dataJson);
             return true;
         }
         private bool WriteFileXml(List<T> listPerson, string filePath)
@@ -68,12 +58,12 @@ namespace serialization
         private bool WriteCsvFile(List<T> listPerson, string filePath)
         {
             using var file = new FileStream(filePath, FileMode.Create);
-            using var writer = new StreamWriter(file) ;
+            using var writer = new StreamWriter(file);
             using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
             csv.WriteHeader<T>();
             csv.NextRecord();
 
-            foreach(var person in listPerson)
+            foreach (var person in listPerson)
             {
                 csv.WriteRecord(person);
                 csv.NextRecord();

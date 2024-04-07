@@ -1,2 +1,0 @@
-{"Name":"b","SecondName":"bb","Patronymic":"bbb","Age":3}
-{"Name":"e","SecondName":"ee","Patronymic":"eee","Age":6}

@@ -1,57 +1,60 @@
 ﻿using CsvHelper;
-using CsvHelper.Configuration;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 using System.Xml.Serialization;
-using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 
-namespace Serializacia
+namespace Serializacia.WorkWithData
 {
     internal class DeserializathionDate<T>
     {
         public List<T> StartDeserialization(string filePath)
         {
+            
+
+                
             List<T> resultList = new List<T>();
-            Console.WriteLine("Укажите способ Десериализации данных");
-            string choiseDec = Console.ReadLine();
-            switch (choiseDec)
+            string typeFile = filePath.Substring(filePath.IndexOf('.'));
+
+            switch (typeFile)
             {
-                case "Json":
+                case ".json":
                     resultList = ReadFileJson(filePath);
+                    Console.WriteLine($"Данные удачно десериализованы из файл с именем {filePath}");
                     break;
-                case "Xml":
+                case ".xml":
                     resultList = ReadFileXml(filePath);
+                    Console.WriteLine($"Данные удачно десериализованы из файл с именем {filePath}");
                     break;
-                case "Csv":
+                case ".csv":
                     resultList = ReadFileCsv(filePath);
+                    Console.WriteLine($"Данные удачно десериализованы из файл с именем {filePath}");
                     break;
-                case "Yaml":
+                case ".yaml":
                     resultList = ReadFileYaml(filePath);
+                    Console.WriteLine($"Данные удачно десериализованы из файл с именем {filePath}");
+                    break;
+                default:
+                    Console.WriteLine("Введите верный формат");
                     break;
             }
             return resultList;
         }
         private List<T> ReadFileJson(string filePath)
         {
-            List<T> listDate = new List<T>();
-            List<string> dataJson = new List<string>();
-            StreamReader reader = new StreamReader(filePath);
-            while (!reader.EndOfStream)
+            List<T>listDate = new List<T>();
+            string dataJson = "";
+            dataJson = File.ReadAllText(filePath);
+            if (dataJson.Contains("["))
             {
-                dataJson.Add(reader.ReadLine());
+                listDate = JsonSerializer.Deserialize<List<T>>(dataJson);
             }
-            foreach (var date in dataJson)
+            else
             {
-                T? dateInFile = JsonConvert.DeserializeObject<T>(date);
-                listDate.Add(dateInFile);
+                var strData = JsonSerializer.Deserialize<T>(dataJson);
+                listDate.Add(strData);
             }
-            reader.Close();
+
             return listDate;
         }
         private List<T> ReadFileXml(string filePath)
@@ -72,7 +75,7 @@ namespace Serializacia
             csv.Read();
             csv.ReadHeader();
             listDate = csv.GetRecords<T>().ToList();
-            
+
             return listDate;
         }
         private List<T> ReadFileYaml(string filePath)
@@ -80,7 +83,7 @@ namespace Serializacia
             string text = File.ReadAllText(filePath);
             var deserializer = new DeserializerBuilder().Build();
             List<T> deserialData = deserializer.Deserialize<List<T>>(text);
-            List<T> listDate = deserialData;   
+            List<T> listDate = deserialData;
             return listDate;
         }
     }

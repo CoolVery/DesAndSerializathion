@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
-using serialization;
+using Serializacia.FolderMainMethod;
+using Serializacia.Models;
+using Serializacia.WorkWithData;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Xml.Serialization;
@@ -15,86 +17,31 @@ namespace Serializacia
             bool exit = true;
             List<PersonsData> listPerson = new List<PersonsData>();
             List<Animal> listAnimal = new List<Animal>();
-            List<PersonsData> listPersonInFile = new List<PersonsData>();
-            List<Animal> listAnimalInFile = new List<Animal>();
+            List<PersonsData> listPersonFromFile = new List<PersonsData>();
+            List<Animal> listAnimalFromFile = new List<Animal>();
             while (exit)
             {
                 Console.WriteLine("Выберите действие, которое хотите выполнить:\n1. Записать данные в базу\n2. Сериализовать данные людей\n3. Десериализовать и получить данные людей\n" +
-                    "4. Вывести информацию");
+                    "4. Вывести информацию\n(Вводите номер выбора)");
                 string choiseAction = Console.ReadLine();
                 switch (choiseAction)
                 {
                     case "1":
-                        Console.WriteLine("Выберите базу, с которой вы хотите работать\n1. Люди\n2. Животные");
-                        string baseChoise = Console.ReadLine();
-                        switch (baseChoise)
-                        {
-                            case "Люди":
-                                Console.WriteLine("Введите количество людей в базе");
-                                int countPerson = Convert.ToInt32(Console.ReadLine());
-                                listPerson = PersonsData.InputDateInList(countPerson);
-                                break;
-                            case "Животные":
-                                Console.WriteLine("Введите количество животных в базе");
-                                int countAnimal = Convert.ToInt32(Console.ReadLine());
-                                listAnimal = Animal.InputDateInList(countAnimal);
-                                break;
-                            default:
-                                Console.WriteLine("Вы ввели некорректную базу. Внимательно читайте список доступных баз"); 
-                                break;
-                        }
-                        Console.WriteLine("Все пользователи добавлены в базу");
+                        MainMethodsWorksWithModels.InputDateInBase(ref listPerson, ref listAnimal);                       
                         break;
                     case "2":
-                        if (listPerson.Count == 0)
-                        {
-                            Console.WriteLine("Вы не добавили данные людей в базу. Для добавления данных в базу надо выбрать действие 1");
-                            break;
-                        }
-                        else if (listAnimal.Count == 0)
-                        {
-                            Console.WriteLine("Вы не добавили данные животных в базу. Для добавления данных в базу надо выбрать действие 1");
-                            break;
-                        }
-                        Console.WriteLine("Какую базу хотите записать?\n1. Люди\n2. Животные");
-                        baseChoise = Console.ReadLine();
-                        switch (baseChoise)
-                        {
-                            case "Люди":
-                                Console.WriteLine("Задайте имя файла, в котором будет сохраняться сериализованны данные и откуда они будут считываться (Укажите формат файла, т.е <Имя файла>.<Формат файла>)");
-                                string filePath = Console.ReadLine();
-                                SerializationData<PersonsData> dataPerosonsSerial = new SerializationData<PersonsData>();
-                                dataPerosonsSerial.StartSerialization(listPerson, filePath);
-                                Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
-                                break;
-                            case "Животные":
-                                Console.WriteLine("Задайте имя файла, в котором будет сохраняться сериализованны данные и откуда они будут считываться (Укажите формат файла, т.е <Имя файла>.<Формат файла>)");
-                                filePath = Console.ReadLine();
-                                SerializationData<Animal> dataAnimalssSerial = new SerializationData<Animal>();
-                                dataAnimalssSerial.StartSerialization(listAnimal, filePath);
-                                Console.WriteLine($"Данные удачно сериализованы в файл с именем {filePath}");
-                                break;
-                            default:
-                                Console.WriteLine("Вы ввели некорректную базу. Внимательно читайте список доступных баз");
-                                break;
-                        }
+                        MainMethodsWorksWithModels.InputDateInFile(listPerson, listAnimal);
                         break;
                     case "3":
-                        Console.WriteLine("В какую базу вы хотите записать данные из файла?\n1. Люди\n2. Животные");
-                        baseChoise = Console.ReadLine();
+                        Console.WriteLine("В какую базу вы хотите записать данные из файла?\n1. Люди\n2. Животные\n(Вводите номер выбора)");
+                        string baseChoise = Console.ReadLine();
                         switch(baseChoise)
                         {
-                            case "Люди":
-                                Console.WriteLine("Задайте имя файла, из которого будут десериализоваться файлы");
-                                string filePathDec = Console.ReadLine();
-                                DeserializathionDate<PersonsData> dataPerosonsDeserial = new DeserializathionDate<PersonsData>();
-                                listPersonInFile = dataPerosonsDeserial.StartDeserialization(filePathDec);
+                            case "1":
+                                listPersonFromFile =  MainMethodsWorksWithModels.RecordDataInBaseFromFile<PersonsData>();
                                 break;
-                            case "Животные":
-                                Console.WriteLine("Задайте имя файла, из которого будут десериализоваться файлы");
-                                filePathDec = Console.ReadLine();
-                                DeserializathionDate<Animal> dataAnimalsDeserial = new DeserializathionDate<Animal>();
-                                listAnimalInFile = dataAnimalsDeserial.StartDeserialization(filePathDec);
+                            case "2":
+                                listAnimalFromFile = MainMethodsWorksWithModels.RecordDataInBaseFromFile<Animal>();
                                 break;
                             default:
                                 Console.WriteLine("Вы ввели некорректную базу. Внимательно читайте список доступных баз");
@@ -102,7 +49,17 @@ namespace Serializacia
                         }
                         break;
                     case "4":
-                        PersonsData.PrintList(listPersonInFile);
+                        Console.WriteLine("Из какой базы вы хотите вывести данные?\n1. Люди\n2. Животные\n(Вводите номер выбора)");
+                        string choise = Console.ReadLine();
+                        switch(choise)
+                        {
+                            case "1":
+                                MainMethodsWorksWithModels.OutputDateFromBaseToConsole(listPersonFromFile, listAnimalFromFile, choise);
+                                break;
+                            case "2":
+                                MainMethodsWorksWithModels.OutputDateFromBaseToConsole(listPersonFromFile, listAnimalFromFile, choise);
+                                break;
+                        }
                         break;
                     default:
                         Console.WriteLine("Вы ввели неверный номер дейсвия - читайте внимательно список доступных действий");
